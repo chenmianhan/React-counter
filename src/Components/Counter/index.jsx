@@ -5,7 +5,7 @@ class Counter extends React.Component {
         super(props)
         this.state = {
             number: 0,
-            inputValue:0
+            counternumbers:0
         }
     }
     onClickAdd = () => {
@@ -17,12 +17,12 @@ class Counter extends React.Component {
         this.props.numberChange(-1);
     }
     static getDerivedStateFromProps(nextProps, prevState) {
-        const {inputValue} = nextProps;
+        const {counterNumbers} = nextProps;
       
-        if (inputValue !== prevState.inputValue) {
+        if (counterNumbers !== prevState.counterNumbers) {
             prevState.number=0;
             return {
-                inputValue,
+                counterNumbers,
             };
         }
        

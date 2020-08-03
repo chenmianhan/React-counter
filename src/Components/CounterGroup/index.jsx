@@ -4,19 +4,19 @@ class CounterGroup extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            inputValue: 1,
+            counternumbers: 1,
             total: 0
         }
     }
-    handelChange(e) {
-        if (e.target.value === '')
+    handelChange(event) {
+        if (event.target.value === '')
             this.setState({
-                inputValue: 0,
+                counternumbers: 0,
                 total: 0
             })
         else
             this.setState({
-                inputValue: e.target.value,
+                counternumbers: event.target.value,
                 total: 0
             })
     }
@@ -31,10 +31,10 @@ class CounterGroup extends React.Component {
         return (
 
             <div>
-                <p>number of counters<input type="number" onChange={this.handelChange.bind(this)} defaultValue={this.state.inputValue} /></p>
+                <p>number of counters<input type="number" onChange={this.handelChange.bind(this)} defaultValue={this.state.counternumbers} /></p>
                 <p>total: {this.state.total}</p>
-                {new Array(parseInt(this.state.inputValue)).fill(0).map((value, index) =>
-                    <Counter key={index} numberChange={this.handleTotalChange} inputValue={this.state.inputValue}/>)}
+                {new Array(parseInt(this.state.counternumbers)).fill(0).map((value, index) =>
+                    <Counter key={index} numberChange={this.handleTotalChange} counterNumbers={this.state.counternumbers}/>)}
 
             </div>
         )
