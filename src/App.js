@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <header>
-        <CounterGroup amount={10}></CounterGroup>
+        <CounterGroup></CounterGroup>
       </header>
 
     </div>
