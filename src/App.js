@@ -1,11 +1,15 @@
 import React from 'react';
-import Counter from './Components/Counter'
+
+import CounterGroup from './Components/CounterGroup'
 function App() {
   return (
     <div>
-      <Counter></Counter>
+      <header>
+        <CounterGroup amount={10}></CounterGroup>
+      </header>
+
     </div>
-  
+
 
   );
 }
