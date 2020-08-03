@@ -34,7 +34,7 @@ class CounterGroup extends React.Component {
                 <p>number of counters<input type="number" onChange={this.handelChange.bind(this)} defaultValue={this.state.inputValue} /></p>
                 <p>total: {this.state.total}</p>
                 {new Array(parseInt(this.state.inputValue)).fill(0).map((value, index) =>
-                    <Counter key={index} numberChange={this.handleTotalChange} />)}
+                    <Counter key={index} numberChange={this.handleTotalChange} inputValue={this.state.inputValue}/>)}
 
             </div>
         )
