@@ -4,7 +4,8 @@ class Counter extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            number: 0
+            number:0
+            
         }
     }
     onClickAdd = () => {
@@ -15,6 +16,7 @@ class Counter extends React.Component {
     }
     render() {
         return (
+            
             <div>
                 <button onClick={this.onClickAdd}>+</button>
                 <mark>{this.state.number}</mark>
