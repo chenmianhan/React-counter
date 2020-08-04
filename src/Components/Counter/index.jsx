@@ -1,36 +1,52 @@
 import React from 'react';
-
+const INCREASE="INCREASE";
+const DECREASE="DECREASE"
 class Counter extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            number: 0,
-            counternumbers:0
-        }
+        this.state = { number: 0 }
+
     }
     onClickAdd = () => {
-        this.setState({ number: this.state.number + 1 })
-        this.props.numberChange(1);
+        this.setState((preState) => {
+            return {
+                number: preState.number+1
+            }
+        });
+        this.props.updateTotal(INCREASE);
     }
     onClickDelete = () => {
-        this.setState({ number: this.state.number - 1 })
-        this.props.numberChange(-1);
-    }
-    static getDerivedStateFromProps(nextProps, prevState) {
-        const {counterNumbers} = nextProps;
-      
-        if (counterNumbers !== prevState.counterNumbers) {
-            prevState.number=0;
+        this.setState((preState) => {
             return {
-                counterNumbers,
-            };
+                number: preState.number-1
+            }
+        });
+        this.props.updateTotal(DECREASE);
+    }
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     const {counterNumbers} = nextProps;
+
+    //     if (counterNumbers !== prevState.counterNumbers) {
+    //         prevState.number=0;
+    //         return {
+    //             counterNumbers,
+    //         };
+    //     }
+
+    //     return null;
+    // }
+    componentDidUpdate=(nextProps)=>{
+        if(this.props.size!==nextProps.size){
+            this.setState(()=>{
+                return {
+                    number: 0
+                }
+            });
         }
-       
-        return null;
+        return 
     }
     render() {
         return (
-
             <div>
                 <button onClick={this.onClickAdd}>+</button>
                 <mark>{this.state.number}</mark>
